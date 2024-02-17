@@ -683,9 +683,10 @@ void resume_print(const_float_t slow_load_length/*=0*/, const_float_t fast_load_
       --did_pause_print;
       card.startOrResumeFilePrinting();
       // Write PLR now to update the z axis value
-      recovery.DegTargetHotend = thermalManager.degTargetHotend(0);
-      recovery.DegTargetBed = thermalManager.degTargetBed();
-      TERN_(POWER_LOSS_RECOVERY, if (recovery.enabled) recovery.save(true));
+      // DISABLED HERE TO SAVE SPACE WHEN ENABLING SDCARD_READONLY
+      //recovery.DegTargetHotend = thermalManager.degTargetHotend(0);
+      //recovery.DegTargetBed = thermalManager.degTargetBed();
+      //TERN_(POWER_LOSS_RECOVERY, if (recovery.enabled) recovery.save(true));
     }
   #endif
 
